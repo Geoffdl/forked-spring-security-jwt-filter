@@ -17,8 +17,19 @@ public class AuthController {
 
     @PostMapping("/create-user")
     public String createUser(@RequestBody UserApp userApp) throws Exception {
-         userAppService.createUserApp(userApp);
+         userAppService.createUserApp(userApp, "ROLE_USER");
         return "user créé";
+    }
+    
+    @PostMapping("/create-admin")
+    public String createAdmin(@RequestBody UserApp userApp) throws Exception {
+         userAppService.createUserApp(userApp, "ROLE_ADMIN");
+        return "admin créé";
+    }
+    @PostMapping("/create-super-admin")
+    public String createSuperAdmin(@RequestBody UserApp userApp) throws Exception {
+        userAppService.createUserApp(userApp, "ROLE_SUPER_ADMIN");
+        return "superAdmin créé";
     }
 
     @PostMapping("/login")
