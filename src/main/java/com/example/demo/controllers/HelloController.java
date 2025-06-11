@@ -18,4 +18,14 @@ public class HelloController {
     public String getHelloPrivate() throws Exception {
         return "hello private";
     }
+    
+    
+    @GetMapping({"/admin"})
+    public String getHelloAdmin() {
+        return "hello admin";
+    }
+    @GetMapping({"/user"})
+    public String getHelloUser(){
+        return "hello user";
+    }
 }
