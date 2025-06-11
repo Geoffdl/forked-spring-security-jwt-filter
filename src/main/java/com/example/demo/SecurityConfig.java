@@ -24,9 +24,10 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/hello/public", "/auth/create-user", "/auth/login", "/h2-console/**").permitAll()
+                        .requestMatchers("/hello/public", "/auth/create-user","/auth/create-admin","/auth/create-super-admin",   "/auth/login", "/h2-console/**").permitAll()
                       .requestMatchers("/hello/admin").hasRole("ADMIN")
                       .requestMatchers("hello/user").hasRole("USER")
+                      .requestMatchers("hello/super-admin").hasRole("SUPER_ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

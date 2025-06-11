@@ -24,6 +24,10 @@ public class HelloController {
     public String getHelloAdmin() {
         return "hello admin";
     }
+    @GetMapping({"/super-admin"})
+    public String getHelloSuperAdmin() {
+        return "hello Super admin";
+    }
     @GetMapping({"/user"})
     public String getHelloUser(){
         return "hello user";

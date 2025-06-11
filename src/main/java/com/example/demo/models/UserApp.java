@@ -14,9 +14,11 @@ public class UserApp {
     @Column(unique = true)
     private String username;
     private String password;
+    private String role;
 
-    public UserApp(String username, String encode) {
+    public UserApp(String username, String encode, String role) {
         this.username = username;
         this.password = encode;
+        this.role = role;
     }
 }
